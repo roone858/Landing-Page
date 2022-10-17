@@ -63,8 +63,13 @@ body {
     transition: var(--transition);
     position: relative;
     font-size: 14px;
+    cursor: pointer;
+        border-radius: 15px;
 
 
+}
+.navbar ul li:hover a {
+    color: var(--yellow);
 }
 
 .navbar ul li:last-child {
@@ -82,11 +87,6 @@ body {
 
 
 }
-
-.navbar a:hover {
-    color: var(--yellow);
-}
-
 
 .navbar ul li::after {
     content: "";
@@ -223,7 +223,7 @@ ul.nav-list.active li {
 .home {
     height: 100vh;
     width: 100%;
-    background-image: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.18)), url("../pics/63495f5353e7d.JPG");
+    background-image: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.18)), url("../pics/63495f5353e7d.jpg");
     background-position: center;
     background-size: cover;
 }
