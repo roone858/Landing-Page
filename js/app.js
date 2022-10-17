@@ -4,6 +4,7 @@ let navList = document.querySelector(".nav-container ul.nav-list");
 let slider1 = document.querySelector(".slider:nth-child(1)");
 let slider2 = document.querySelector(".slider:nth-child(2)");
 let slider3 = document.querySelector(".slider:nth-child(3)");
+let sections = document.querySelectorAll("section");
 let users = [
   {
     photo: "1.png",
@@ -32,6 +33,31 @@ let users = [
   },
 ];
 
+function updateSlider(slider, i) {
+  let docFrag = document.createDocumentFragment();
+
+  let img = document.createElement("img");
+
+  img.src = `pics/${users[i].photo}`;
+
+  let h4 = document.createElement("h4");
+  h4.textContent = users[i].name;
+
+  let p = document.createElement("p");
+  p.textContent = users[i].par;
+
+  let div = document.createElement("div");
+  div.className = "background";
+
+  div.appendChild(img);
+  div.appendChild(h4);
+  div.appendChild(p);
+
+  docFrag.appendChild(div);
+  slider.innerHTML = "";
+  slider.appendChild(docFrag);
+}
+
 let i = 1,
   j = 2,
   y = 3;
@@ -46,21 +72,9 @@ function updateSliderPic() {
   if (y == 5) {
     y = 0;
   }
-  slider1.innerHTML = `<div class="background">
-  <img src="pics/${users[i].photo}" alt="" />
-  <h4>${users[i].name}</h4>
-  <p>${users[i].par}</p>
-  </div>`;
-  slider2.innerHTML = ` <div class="background"> 
-  <img src="pics/${users[j].photo}" alt="" />
-  <h4>${users[j].name}</h4>
-  <p>${users[j].par}</p>
-  </div>`;
-  slider3.innerHTML = ` <div class="background">   
-  <img src="pics/${users[y].photo}" alt="" />
-  <h4>${users[y].name}</h4>
-  <p>${users[y].par}</p>
-  </div>`;
+  updateSlider(slider1, i);
+  updateSlider(slider2, j);
+  updateSlider(slider3, y);
 
   i++;
   j++;
@@ -68,7 +82,7 @@ function updateSliderPic() {
 }
 
 setInterval(updateSliderPic, 9000);
-let sections = document.querySelectorAll("section");
+
 
 navigationLinks.forEach(function (elm, idx) {
   elm.addEventListener("click", function () {
