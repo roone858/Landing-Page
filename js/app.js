@@ -1,10 +1,10 @@
 let toggleBtn = document.querySelector(".toggle-btn");
-let navigationLinks = document.querySelectorAll(".nav-links li");
-let navList = document.querySelector(".nav-container ul.nav-list");
+let navigationLinks = document.querySelectorAll("nav li");
+let menu = document.querySelector(".nav-container ul.nav-list");
 let slider1 = document.querySelector(".slider:nth-child(1)");
 let slider2 = document.querySelector(".slider:nth-child(2)");
 let slider3 = document.querySelector(".slider:nth-child(3)");
-let sections = document.querySelectorAll("section");
+let sections = Array.from(document.getElementsByTagName("section"));
 let users = [
   {
     photo: "1.png",
@@ -33,6 +33,36 @@ let users = [
   },
 ];
 
+// here create dynamic nav 
+sections.forEach(function (section) {
+  const listItem = document.createElement("li");
+  const listItemLink = document.createElement("a");
+  // use the section data-nav to fill the <a> tag
+  listItemLink.textContent = section.getAttribute("dataset.nav");
+  listItem.appendChild(listItemLink);
+  // make the elments of the nav are clickable
+  listItem.addEventListener("click", function () {
+    sections.forEach(function (section) {
+      section.classList.remove("active");
+    });
+    section.classList.add("active");
+    window.scroll({
+      top: section.offsetTop - 70,
+      behavior: "smooth",
+    });
+  });
+  menu.appendChild(listItem);
+});
+
+
+
+// toogle button to slide nav
+toggleBtn.addEventListener("click", function () {
+  menu.classList.toggle("active-nav");
+});
+
+
+//here functions to update photo slider
 function updateSlider(slider, i) {
   let docFrag = document.createDocumentFragment();
 
@@ -81,26 +111,18 @@ function updateSliderPic() {
   y++;
 }
 
+
+// run slider by call the functions every 9 sec
 setInterval(updateSliderPic, 9000);
+
+
+//click to slide the slider
 document.getElementById("next").addEventListener("click", function () {
   updateSliderPic();
 });
 
-navigationLinks.forEach(function (elm, idx) {
-  elm.addEventListener("click", function () {
-    window.scroll({
-      top: sections[idx].offsetTop - 70,
-      behavior: "smooth",
-    });
-    // sections[idx].scrollIntoView({
-    //   block: "start",
-    //   behavior: "smooth",
-    // });
-  });
-});
-toggleBtn.addEventListener("click", function () {
-  navList.classList.toggle("active-nav");
-});
+
+// when u scrool in the window the class wiche into view take active class
 
 window.addEventListener("scroll", function () {
   // var elementTarget = document.querySelector(".apply");
@@ -115,4 +137,3 @@ window.addEventListener("scroll", function () {
     }
   });
 });
-
