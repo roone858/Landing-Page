@@ -1,26 +1,12 @@
+# Landing Page
 
-# UDACITY
+This project is for Udacity's Front End Nanodegree program. HTML and CSS starter code provided by Udacity. 
 
-a finnaly version of my project to learn web dev with FWD EGYPT
+## Description
 
+This is a basic landing page that uses Javascript to create a NavBar dynamically and to highlight sections when scrolled. The project uses HTML, CSS, and Javascript. 
 
-## skill u will learn
+### To view project
 
- - [DOM JAVA SCRIPT](https://awesomeopensource.com/project/elangosundar/awesome-README-templates)
- - [WINDOW SCROLL](https://github.com/matiassingers/awesome-readme)
- - [DYNAMIC WEBSITE](https://bulldogjob.com/news/449-how-to-write-a-good-readme-for-your-github-project)
-
-
-## LANG USED
-
-- JAVASCRIPT
-
-- CSS
-
-- HTML
-
-
-## Lessons Learned
-
-What did you learn while building this project? What challenges did you face and how did you overcome them?
+The project is published on GitHub Pages. To view, click on this link: [link to project](https://roone858.github.io/Landing-Page/)
 
